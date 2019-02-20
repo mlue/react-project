@@ -15,7 +15,7 @@ class App extends Component {
     }
   }
 
-  onClick(){    
+  onClick(){
     this.setState({
       items: this.state.items.concat([{
         name: "name",
@@ -30,8 +30,8 @@ class App extends Component {
   render() {
     var listItems = this.state.items.map(function(item) {
       return (
-        <li key="{item.key}">
-          <a href="{item.link}">{item.name}</a>
+        <li key={item.key}>
+          <a href={item.link}>{item.name}</a>
         </li>
       );
     });
