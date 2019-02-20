@@ -5,19 +5,22 @@ import './App.css';
 class App extends Component {
   constructor(){
     super()
+    this.count = 0;
     this.state = {
       items: [{
         name: "name",
-        link: "link"
+        link: "link",
+        key: this.count
       }]
     }
   }
 
-  onClick(){
+  onClick(){    
     this.setState({
       items: this.state.items.concat([{
         name: "name",
-        link: "link"
+        link: "link",
+        key: ++this.count
       }])
     })
   }
@@ -27,7 +30,7 @@ class App extends Component {
   render() {
     var listItems = this.state.items.map(function(item) {
       return (
-        <li key="{item.name}">
+        <li key="{item.key}">
           <a href="{item.link}">{item.name}</a>
         </li>
       );
