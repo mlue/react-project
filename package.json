@@ -1,5 +1,8 @@
 {
   "name": "my-app",
+  "homepage" : "http://mlue.github.io/react-app",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
