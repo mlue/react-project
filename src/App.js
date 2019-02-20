@@ -11,16 +11,16 @@ class App extends Component {
         name: "name",
         link: "link",
         key: this.count
-      }]
+      }],
+      username: "bob"
     }
-    this.username = "test"
     this.handleChange = this.handleChange.bind(this)
   }
 
    onClick(){
     this.setState({
       items: this.state.items.concat([{
-        name: "name",
+        name: this.state.username,
         link: "link",
         key: ++this.count
       }]),
@@ -30,10 +30,10 @@ class App extends Component {
 
    handleChange (e) {
      console.log(e)
-     this.setState((state) => ({
+     this.setState({
        username: e.target.value,
-       items: state.items
-     }))
+       items: this.state.items
+     })
    }
 
   render() {
