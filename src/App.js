@@ -13,19 +13,28 @@ class App extends Component {
         key: this.count
       }]
     }
+    this.username = "test"
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  onClick(){
+   onClick(){
     this.setState({
       items: this.state.items.concat([{
         name: "name",
         link: "link",
         key: ++this.count
-      }])
+      }]),
+      username: this.state.username
     })
-  }
+   }
 
-
+   handleChange (e) {
+     console.log(e)
+     this.setState((state) => ({
+       username: e.target.value,
+       items: state.items
+     }))
+   }
 
   render() {
     var listItems = this.state.items.map(function(item) {
@@ -40,6 +49,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
           <ul>
             {listItems}
           </ul>
